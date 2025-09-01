@@ -1,0 +1,167 @@
+.fruit-container {
+
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.fruit-card {
+    flex: 1 1 calc(33.333% - 16px);
+    max-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fruit-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: space-between;
+}
+
+.fruit-row h2 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.fruit-count {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.fruit-row button, .fruit-row input {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+    font-size: 0.85rem;
+}
+
+.fruit-row button:hover {
+    background: #eaeaea;
+    cursor: pointer;
+}
+
+.fruit-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Optional unique colors per fruit */
+.banana-card h2 { color: goldenrod; }
+.orange-card h2 { color: darkorange; }
+.toolbar-container {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+.toolbar-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.toolbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fruit-emoji {
+    font-size: 1.5rem;
+}
+
+.fruit-label {
+    margin-top: 4px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+.namecolor-card {
+    max-width: 400px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background: #fff;
+    font-family: sans-serif;
+}
+
+.namecolor-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.namecolor-row input[type="text"] {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.namecolor-row input[type="color"] {
+    width: 40px;
+    height: 32px;
+    border: none;
+    padding: 0;
+}
+
+.namecolor-row button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.namecolor-row button:hover {
+    background: #e0e0e0;
+}
+
+.namecolor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.namecolor-item {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    min-width: 80px;
+    text-align: center;
+}
+.welcome-message{
+    font-size: 2.5em;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+.login-prompt{
+    font-size: 2.5em;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+}
