@@ -36,7 +36,7 @@ const Auth = ({ onLogin }) => {
                 if (!res.ok) return setError(data.error || "Login failed");
 
 
-                onLogin(data.username, data.userId);
+                onLogin(data);
                 localStorage.setItem("token", data.token);
                 console.log("Login success, token:", data.token);
 

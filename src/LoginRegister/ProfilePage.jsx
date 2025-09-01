@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const ProfilePage = ({token}) => {
+const ProfilePage = ({token,onBack}) => {
     const [pokes, setPokes] = React.useState([]);
     useEffect(() => {
         const fetchPokes = async () => {
@@ -19,7 +19,17 @@ const ProfilePage = ({token}) => {
     }, [token])
     return (
         <div>
+            <h2>My Profile</h2>
+            <button onClick={onBack}>⬅ Back</button>
 
+            <h3>People who poked me:</h3>
+            <ul>
+                {pokes.map((poke, i) => (
+                    <li key={i}>
+                        {poke.fromUser} - {new Date(poke.date).toLocaleString()}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

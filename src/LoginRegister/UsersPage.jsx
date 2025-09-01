@@ -1,6 +1,6 @@
 import React, {useEffect,useState} from 'react';
 
-const UsersPage = ({token}) => {
+const UsersPage = ({token, onBack}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -38,6 +38,8 @@ const UsersPage = ({token}) => {
     return (
         <div>
             <h2>All Users</h2>
+            <button onClick={onBack}>⬅ Back</button>
+
             <ul>
                 {users.map((user) => (
                     <li key={user._id}>
