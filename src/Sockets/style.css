@@ -1,0 +1,228 @@
+/* Global cyberpunk font & dark background */
+body, html {
+    margin: 0;
+    height: 100%;
+    font-family: "Orbitron", "Courier New", monospace;
+    background: radial-gradient(circle at top, #0f0f1c, #000);
+    color: #fff;
+    overflow: hidden;
+}
+
+/* App wrapper */
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat card - neon border */
+.chat-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    height: 90vh;
+    background: rgba(10, 10, 20, 0.9);
+    border: 2px solid #ff00ff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00fff7 inset;
+    overflow: hidden;
+    position: relative;
+}
+
+.chat-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.05) 0px,
+            rgba(255,255,255,0.05) 1px,
+            transparent 2px,
+            transparent 4px
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Header */
+.chat-header {
+    position: relative;
+    padding: 16px;
+    background: linear-gradient(90deg, #ff00ff, #00fff7);
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 0 6px #fff;
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.chat-header p {
+    margin: 4px 0 0;
+    font-size: 14px;
+}
+
+.status {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+.status.online {
+    background: #39ff14;
+    box-shadow: 0 0 8px #39ff14;
+}
+
+.status.offline {
+    background: #ff3131;
+    box-shadow: 0 0 8px #ff3131;
+}
+
+/* Messages */
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ff00ff #111;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+.chat-messages::-webkit-scrollbar-track {
+    background: #111;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #ff00ff;
+    box-shadow: 0 0 6px #ff00ff;
+}
+
+.message-row {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.message-row.right {
+    justify-content: flex-end;
+}
+
+.message-row.left {
+    justify-content: flex-start;
+}
+
+.message-box {
+    max-width: 70%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 0 6px rgba(0, 255, 247, 0.6);
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+.user-message {
+    background: #0ff;
+    color: #000;
+}
+
+.agent-message {
+    background: #ff00ff;
+    color: #000;
+}
+
+.system-message {
+    background: #111;
+    border: 1px solid #39ff14;
+    color: #39ff14;
+    text-align: center;
+    font-style: italic;
+}
+
+.message-username {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #ffea00;
+}
+
+/* Input bar */
+.chat-input {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 2px solid #ff00ff;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.username-input,
+.message-input {
+    padding: 8px 10px;
+    border: 2px solid #00fff7;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: black;
+    color: #0ff;
+}
+
+.username-input {
+    width: 80px;
+}
+
+.message-input {
+    flex: 1;
+}
+
+.username-input:focus,
+.message-input:focus {
+    border-color: #ff00ff;
+    box-shadow: 0 0 6px #ff00ff;
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: black;
+    text-shadow: 0 0 4px #fff;
+}
+
+.btn.send {
+    background: #00fff7;
+    box-shadow: 0 0 8px #00fff7;
+}
+
+.btn.send:hover {
+    background: #0ff;
+}
+
+.btn.stop {
+    background: #ff3131;
+    box-shadow: 0 0 8px #ff3131;
+}
+
+.btn.stop:hover {
+    background: #ff5252;
+}
+
+.btn.clear {
+    background: #ffea00;
+    box-shadow: 0 0 8px #ffea00;
+}
+
+.btn.clear:hover {
+    background: #ffee55;
+}

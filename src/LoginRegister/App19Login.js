@@ -4,6 +4,9 @@ import PageLike from "./PageLike";
 import CreatingPost from "./CreatingPost";
 import UsersPage from "./UsersPage";
 import ProfilePage from "./ProfilePage";
+import ProductsPage from "./ProductsPage";
+import ReservationsPage from "./ReservationsPage";
+
 
 const App19Login = () => {
     const [currentUser, setCurrentUser] = useState(null);
@@ -35,45 +38,83 @@ const App19Login = () => {
             {!currentUser ? (
                 <Auth onLogin={handleLogin} />
             ) : view === "users" ? (
-                <UsersPage currentUser={currentUser} token={token} onBack={() => setView("menu")} />
+                <UsersPage
+                    currentUser={currentUser}
+                    token={token}
+                    onBack={() => setView("menu")}
+                />
             ) : view === "profile" ? (
-                <ProfilePage currentUser={currentUser} token={token} onBack={() => setView("menu")} />
+                <ProfilePage
+                    currentUser={currentUser}
+                    token={token}
+                    onBack={() => setView("menu")}
+                />
+            ) : view === "products" ? (
+                <ProductsPage
+                    token={token}
+                    onBack={() => setView("menu")}
+                    goToReservations={() => setView("reservations")}
+                />
+            ) : view === "reservations" ? (
+                <ReservationsPage
+                    token={token}
+                    onBack={() => setView("products")}
+                />
             ) : (
                 <div>
                     <h2>Welcome, {currentUser}</h2>
                     <button onClick={() => setView("users")}>All Users</button>
                     <button onClick={() => setView("profile")}>My Profile</button>
+                    <button onClick={() => setView("products")}>Products</button>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             )}
-
-
-
-
-
-
-
-
-
-
-
-
-            {/*{!currentUser ? (*/}
-            {/*    <Auth onLogin={handleLogin} />*/}
-            {/*) : showCreatePost ? (*/}
-            {/*    <CreatingPost*/}
-            {/*        userId={userId}*/}
-            {/*        onBack={() => setShowCreatePost(false)}*/}
-            {/*    />*/}
-            {/*) : (*/}
-            {/*    <PageLike*/}
-            {/*        currentUser={currentUser}*/}
-            {/*        userId={userId}*/}
-            {/*        onLogout={handleLogout}*/}
-            {/*        onCreatePost={() => setShowCreatePost(true)}*/}
-            {/*    />*/}
-            {/*)}*/}
         </div>
+
+
+        // <div>
+        //     {!currentUser ? (
+        //         <Auth onLogin={handleLogin} />
+        //     ) : view === "users" ? (
+        //         <UsersPage currentUser={currentUser} token={token} onBack={() => setView("menu")} />
+        //     ) : view === "profile" ? (
+        //         <ProfilePage currentUser={currentUser} token={token} onBack={() => setView("menu")} />
+        //     ) : (
+        //         <div>
+        //             <h2>Welcome, {currentUser}</h2>
+        //             <button onClick={() => setView("users")}>All Users</button>
+        //             <button onClick={() => setView("profile")}>My Profile</button>
+        //             <button onClick={handleLogout}>Logout</button>
+        //         </div>
+        //     )}
+
+
+
+
+
+
+
+
+
+
+
+            //
+            // {/*{!currentUser ? (*/}
+            // {/*    <Auth onLogin={handleLogin} />*/}
+            // {/*) : showCreatePost ? (*/}
+            // {/*    <CreatingPost*/}
+            // {/*        userId={userId}*/}
+            // {/*        onBack={() => setShowCreatePost(false)}*/}
+            // {/*    />*/}
+            // {/*) : (*/}
+            // {/*    <PageLike*/}
+            // {/*        currentUser={currentUser}*/}
+            // {/*        userId={userId}*/}
+            // {/*        onLogout={handleLogout}*/}
+            // {/*        onCreatePost={() => setShowCreatePost(true)}*/}
+            // {/*    />*/}
+            // {/*)}*/}
+
     );
 };
 

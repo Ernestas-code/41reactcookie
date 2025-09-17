@@ -26,6 +26,9 @@ const UsersPage = ({token, onBack}) => {
                 headers : {Authorization: token},
             })
             const data = await res.json();
+            if (!res.ok) {
+                return alert(data.error || "failed to poke user")
+            }
             alert(data.message);
 
         }
