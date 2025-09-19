@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const CreatePost = ({currentUser, token}) => {
+const CreatePost = ({currentUser, token,onBack}) => {
 
     const [topic, setTopic] = useState("");
     const [mood, setMood] = useState("Happy");
@@ -25,6 +25,7 @@ const CreatePost = ({currentUser, token}) => {
 
     return (
         <div>
+            <button onClick={onBack}>⬅ Back</button>
             <h2>Create New Post</h2>
             <input
                 type="text"

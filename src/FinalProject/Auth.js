@@ -40,10 +40,10 @@ const Auth = ({ onLogin }) => {
                 onLogin({
                     token: data.token,
                     username: data.username,
-                    email: data.email,
+                    email: data.email || formData.email,
                     userId: data.userId,
                 });
-                localStorage.setItem("token", data.token);
+                // localStorage.setItem("token", data.token);
                 console.log("Login success, token:", data.token);
 
             }
