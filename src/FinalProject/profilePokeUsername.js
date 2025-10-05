@@ -30,9 +30,19 @@ const ProfilePokeUsername = ({currentUser,token,onUpdateUser}) => {
             body: JSON.stringify({username: newUsername.trim()})
         })
         const data =await res.json();
-        onUpdateUser({...currentUser, username:newUsername.trim()});
-        setIsEditing(false)
-        alert("user updated successfully1")
+        console.log("update" ,data)
+        const updatedUser = {
+            ...currentUser,
+            username: newUsername.trim(),
+            email: data.user.email,
+            userId: data.user._id,
+        }
+        onUpdateUser(updatedUser);
+        localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+        localStorage.setItem("token", data.token);
+
+        setIsEditing(false);
+        alert("Username updated successfully1");
 
         }
     return (
@@ -96,7 +106,7 @@ const ProfilePokeUsername = ({currentUser,token,onUpdateUser}) => {
                                 >
                                     Cancel
                                 </button>
-                                 && (
+
 
                             </div>
                         ) : (
@@ -151,12 +161,7 @@ const ProfilePokeUsername = ({currentUser,token,onUpdateUser}) => {
                     Poke History ({pokes.length})
                 </h3>
 
-                 (
 
-                    <p style={{ color: "#666", fontStyle: "italic" }}>
-                        No one has poked you yet!
-                    </p>
-                ) : (
                     <div style={{ maxHeight: "400px", overflowY: "auto" }}>
                         <table style={{ width: "100%", borderCollapse: "collapse" }}>
                             <thead>
@@ -201,7 +206,7 @@ const ProfilePokeUsername = ({currentUser,token,onUpdateUser}) => {
                             </tbody>
                         </table>
                     </div>
-                )
+
             </div>
         </div>
     );

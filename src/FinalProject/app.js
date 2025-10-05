@@ -3,14 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Navbar from "./navbar";
 import PublicHome from "./Public";
 import Auth from "./Auth";
-import Dashboard from "./Dashboard";
 import AllUsers from "./allusers";
 import AllPosts from "./allposts";
 import SinglePost from "./SinglePost";
 import SingleUser from "./SingleUser";
 import Profile from "./profilePokeUsername";
 import CreatePost from "./CreatePost";
-
+import Chat from "./Chat";
 const App = () => {
     const [currentUser, setCurrentUser] = useState(null);
     const [token, setToken] = useState("");
@@ -56,16 +55,21 @@ const App = () => {
                 <Navbar currentUser={currentUser} onLogout={handleLogout} />
 
                 <Routes>
-                    {/* Public Routes */}
-                    <Route path="/" element={<PublicHome />} />
+                    <Route path="/" element={<PublicHome currentUser={currentUser} />} />
                     <Route path="/login" element={<Auth onLogin={handleLogin} />} />
-                    <Route path="/post/:id" element={<SinglePost currentUser={currentUser} token={token} />} />
+                    <Route
+                        path="/post/:id"
+                        element={
+                            currentUser ? (
+                                <SinglePost currentUser={currentUser} token={token} />
+                            ) : (
+                                <Navigate to="/login" />
+                            )
+                        }
+                    />
                     <Route path="/user/:username" element={<SingleUser currentUser={currentUser} token={token} />} />
 
-                    {/* Private Routes - require login */}
-                    <Route path="/dashboard" element={
-                        currentUser ? <Dashboard currentUser={currentUser} /> : <Navigate to="/login" />
-                    } />
+
                     <Route path="/users" element={
                         currentUser ? <AllUsers token={token} /> : <Navigate to="/login" />
                     } />
@@ -77,6 +81,9 @@ const App = () => {
                     } />
                     <Route path="/create" element={
                         currentUser ? <CreatePost currentUser={currentUser} token={token} /> : <Navigate to="/login" />
+                    } />
+                    <Route path="/chat" element={
+                        currentUser ? <Chat currentUser={currentUser} /> : <Navigate to="/login" />
                     } />
                 </Routes>
             </div>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Auth from "./Auth";
-import SinglePost from "./SinglePost";
-import CreatePost from "./CreatePost";
-import SingleUser from "./SingleUser";
+import Auth from "../../../../FinalProject/FinalProject/Auth";
+import SinglePost from "../../../../FinalProject/FinalProject/SinglePost";
+import CreatePost from "../../../../FinalProject/FinalProject/CreatePost";
+import SingleUser from "../../../../FinalProject/FinalProject/SingleUser";
 
 const PublicIndexPage = ({ onLogin, onSelectPost, onSelectUser }) => {
     const [posts, setPosts] = useState([]);
